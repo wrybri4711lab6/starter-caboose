@@ -1,14 +1,14 @@
 <?php
 
 if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+	exit('No direct script access allowed');
 
 // the menu basics (text navbar)
 $config['menu_choices'] = array(
-    'menudata' => array(
-	array('name' => "View 'Em", 'link' => '/viewer'),
-        )
-    );
+	'menudata' => array(
+		array('name' => "View 'Em", 'link' => '/viewer'),
+	)
+);
 
 
 /*
@@ -25,7 +25,7 @@ $config['menu_choices'] = array(
   | path to your installation.
   |
  */
-$config['base_url'] = '';
+$config['base_url'] = '/';
 
 /*
   |--------------------------------------------------------------------------

@@ -1,10 +1,10 @@
-#############################
-Lab 5 Starter Webapp - Quotes
-#############################
+###################################
+Tutorial 5 Starter Webapp - Caboose
+###################################
 
-This is the starter webapp for Comp4711 Tutorial/Lab 5.
+This is the starter webapp for CodeIgniter Tutorial #5.
 
-Unlike lab 3, this version is fully functional, just feature incomplete.
+Unlike an earlier version, this version is fully functional, just feature incomplete.
 
 The project uses a "quotes" database, setup through quotes-setup.sql in the project root.
 
@@ -14,7 +14,6 @@ specific quote in detail.
 The Viewer controller displays all the quotes on file, by default.
 Each mugshot links to a viewer/quote method call, to display that author's quote.
 
-We will be adding an Admin controller for maintenance of the quotes table.
 
 **************
 Intended Usage
@@ -22,7 +21,7 @@ Intended Usage
 
 Fork this project.
 Clone it locally.
-Enhance it per tutorial 5.
+Enhance it per the tutorial
 
 *****
 Setup
@@ -54,12 +53,12 @@ agreement <http://codeigniter.com/userguide3/license.html>`_
 Resources
 *********
 
--  `Informational website <http://codeigniter.com/>`_
+-  `Informational website <https://codeigniter.com/>`_
 -  `Source code repo <https://github.com/bcit-ci/CodeIgniter/>`_
--  `User Guide <http://codeigniter.com/userguide3/>`_
+-  `User Guide <https://codeigniter.com/userguide3/>`_
 -  `Community Forums <https://forum.codeigniter.com/>`_
 -  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki/>`_
--  `Community IRC <http://codeigniter.com/irc>`_
+-  `Community IRC <https://codeigniter.com/irc>`_
 
 ***************
 Acknowledgement
