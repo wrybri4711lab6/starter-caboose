@@ -14,7 +14,21 @@ class Caboose {
 
     var $result;   // where the finished form will be stored
     var $CI; // handle to CodeIgniter instance
-    // define the components
+	
+	// define the base framework components. 
+	// note that these are embedded in the project because they are obsolete bootstrap2
+	var $base = array(
+		'bootstrap' => array(
+			'css' => 'bootstrap.min.css',
+			'js' => 'bootstrap.min.js'
+		),
+		'jquery' => array(
+			'css' => '',
+			'js' => 'jquery-1.11.1.min.js'
+		)
+	);
+
+	// define the components
     var $components = array(
          'lightbox' => array(
             'css' => 'jquery.lightbox-0.5.css',
@@ -59,6 +73,19 @@ class Caboose {
     function styles() {
         $result = '';
 
+        // generate the base CSS references
+        foreach ($this->base as $fundamental) {
+            $css = $fundamental['css'];
+            if (!empty($css)) {
+                if (is_array($css)) {
+                    foreach ($css as $filename)
+                        $result .= '<link rel="stylesheet" type="text/css" href="/assets/css/' . $filename . '"/>' . PHP_EOL;
+                }
+                else
+                    $result .= '<link rel="stylesheet" type="text/css" href="/assets/css/' . $css . '"/>' . PHP_EOL;
+            }
+        }
+		
         // generate any needed CSS references
         foreach ($this->fields as $component => $needed) {
             $css = $this->components[$component]['css'];
@@ -80,6 +107,19 @@ class Caboose {
     function scripts() {
         $result = '';
 
+        // generate the base javascript references
+        foreach ($this->base as $fundamental) {
+            $css = $fundamental['js'];
+            if (!empty($js)) {
+                if (is_array($js)) {
+                    foreach ($js as $filename)
+                        $result .= '<script src="/assets/js/' . $filename . '"></script>' . PHP_EOL;
+                }
+                else
+                    $result .= '<script src="/assets/js/' . $js . '"></script>' . PHP_EOL;
+            }
+        }
+		
         // load any needed javascript files
         foreach ($this->fields as $component => $needed) {
             $js = $this->components[$component]['js'];
