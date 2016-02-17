@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('APPPATH'))
-    exit('No direct script access allowed');
+	exit('No direct script access allowed');
 
 /**
  * helpers/forms_helper.php
@@ -24,21 +24,23 @@ if (!defined('APPPATH'))
  * @param int $size width in ems of the input control
  * @param boolean $disabled True if non-editable
  */
-if (!function_exists('makeTextField')) {
+if (!function_exists('makeTextField'))
+{
 
-    function makeTextField($label, $name, $value, $explain = "", $maxlen = 40, $size = 25, $disabled = false) {
-        $CI = &get_instance();
-        $parms = array(
-            'label' => $label,
-            'name' => $name,
-            'value' => htmlentities($value, ENT_COMPAT, 'UTF-8'),
-            'explain' => $explain,
-            'maxlen' => $maxlen,
-            'size' => $size,
-            'disabled' => ($disabled ? 'disabled="disabled"' : '')
-        );
-        return $CI->parser->parse('_fields/textfield', $parms, true);
-    }
+	function makeTextField($label, $name, $value, $explain = "", $maxlen = 40, $size = 25, $disabled = false)
+	{
+		$CI = &get_instance();
+		$parms = array(
+			'label' => $label,
+			'name' => $name,
+			'value' => htmlentities($value, ENT_COMPAT, 'UTF-8'),
+			'explain' => $explain,
+			'maxlen' => $maxlen,
+			'size' => $size,
+			'disabled' => ($disabled ? 'disabled="disabled"' : '')
+		);
+		return $CI->parser->parse('_fields/textfield', $parms, true);
+	}
 
 }
 
@@ -54,33 +56,36 @@ if (!function_exists('makeTextField')) {
  * @param int $size width in ems of the input control
  * @param boolean $disabled True if non-editable
  */
-if (!function_exists('makeComboField')) {
+if (!function_exists('makeComboField'))
+{
 
-    function makeComboField($label, $name, $value, $options, $explain = "", $maxlen = 40, $size = 25, $disabled = false) {
-        $CI = &get_instance();
-        $parms = array(
-            'label' => $label,
-            'name' => $name,
-            'value' => htmlentities($value, ENT_COMPAT, 'UTF-8'),
-            'explain' => $explain,
-            'maxlen' => $maxlen,
-            'size' => $size,
-            'disabled' => ($disabled ? 'disabled="disabled"' : '')
-        );
+	function makeComboField($label, $name, $value, $options, $explain = "", $maxlen = 40, $size = 25, $disabled = false)
+	{
+		$CI = &get_instance();
+		$parms = array(
+			'label' => $label,
+			'name' => $name,
+			'value' => htmlentities($value, ENT_COMPAT, 'UTF-8'),
+			'explain' => $explain,
+			'maxlen' => $maxlen,
+			'size' => $size,
+			'disabled' => ($disabled ? 'disabled="disabled"' : '')
+		);
 
-        $choices = array();
-        foreach ($options as $val => $display) {
-            $row = array(
-                'val' => $val,
-                'selected' => ($val == $value) ? 'selected="true"' : '',
-                'display' => htmlentities($display)
-            );
-            $choices[] = $row;
-        }
-        $parms['options'] = $choices;
+		$choices = array();
+		foreach ($options as $val => $display)
+		{
+			$row = array(
+				'val' => $val,
+				'selected' => ($val == $value) ? 'selected="true"' : '',
+				'display' => htmlentities($display)
+			);
+			$choices[] = $row;
+		}
+		$parms['options'] = $choices;
 
-        return $CI->parser->parse('_fields/combofield', $parms, true);
-    }
+		return $CI->parser->parse('_fields/combofield', $parms, true);
+	}
 
 }
 
@@ -91,17 +96,19 @@ if (!function_exists('makeComboField')) {
  * @param string $title "Tooltip" text 
  * @param string $css_extras Extra CSS class information
  */
-if (!function_exists('makeSubmitButton')) {
+if (!function_exists('makeSubmitButton'))
+{
 
-    function makeSubmitButton($label, $title, $css_extras = "") {
-        $CI = &get_instance();
-        $parms = array(
-            'label' => $label,
-            'title' => $title,
-            'css_extras' => $css_extras
-        );
-        return $CI->parser->parse('_fields/submit', $parms, true);
-    }
+	function makeSubmitButton($label, $title, $css_extras = "")
+	{
+		$CI = &get_instance();
+		$parms = array(
+			'label' => $label,
+			'title' => $title,
+			'css_extras' => $css_extras
+		);
+		return $CI->parser->parse('_fields/submit', $parms, true);
+	}
 
 }
 
@@ -116,25 +123,27 @@ if (!function_exists('makeSubmitButton')) {
  * @param <type> $size
  * @param <type> $rows 
  */
-if (!function_exists('makeTextArea')) {
+if (!function_exists('makeTextArea'))
+{
 
-    function makeTextArea($label, $name, $value, $explain = "", $maxlen = 40, $size = 25, $rows = 5, $disabled = false) {
-        $height = (int) (strlen($value) / 80) + 1;
-        if ($rows < $height)
-            $rows = $height;
-        $CI = &get_instance();
-        $parms = array(
-            'label' => $label,
-            'name' => $name,
-            'value' => htmlentities($value, ENT_COMPAT, 'UTF-8'),
-            'explain' => $explain,
-            'maxlen' => $maxlen,
-            'size' => $size,
-            'rows' => $rows,
-            'disabled' => ($disabled ? 'disabled="disabled"' : '')
-        );
-        return $CI->parser->parse('_fields/textarea', $parms, true);
-    }
+	function makeTextArea($label, $name, $value, $explain = "", $maxlen = 40, $size = 25, $rows = 5, $disabled = false)
+	{
+		$height = (int) (strlen($value) / 80) + 1;
+		if ($rows < $height)
+			$rows = $height;
+		$CI = &get_instance();
+		$parms = array(
+			'label' => $label,
+			'name' => $name,
+			'value' => htmlentities($value, ENT_COMPAT, 'UTF-8'),
+			'explain' => $explain,
+			'maxlen' => $maxlen,
+			'size' => $size,
+			'rows' => $rows,
+			'disabled' => ($disabled ? 'disabled="disabled"' : '')
+		);
+		return $CI->parser->parse('_fields/textarea', $parms, true);
+	}
 
 }
 
@@ -145,18 +154,20 @@ if (!function_exists('makeTextArea')) {
  * @param <type> $name
  * @param <type> $explain
  */
-if (!function_exists('showImage')) {
+if (!function_exists('showImage'))
+{
 
-    function showImage($label, $name, $width = 120, $height = 80) {
-        $CI = &get_instance();
-        $parms = array(
-            'label' => $label,
-            'name' => $name,
-            'width' => $width,
-            'height' => $height
-        );
-        return $CI->parser->parse('_fields/x_submitted', $parms, true);
-    }
+	function showImage($label, $name, $width = 120, $height = 80)
+	{
+		$CI = &get_instance();
+		$parms = array(
+			'label' => $label,
+			'name' => $name,
+			'width' => $width,
+			'height' => $height
+		);
+		return $CI->parser->parse('_fields/x_submitted', $parms, true);
+	}
 
 }
 
